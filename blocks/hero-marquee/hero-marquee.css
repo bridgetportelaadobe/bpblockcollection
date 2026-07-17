@@ -34,13 +34,20 @@
   text-align: center;
 }
 
-/* Inline CTA — lime accent, no underline, spaced from the statement */
+/* Lead phrase accent (SAME PRICE SINCE 2009*) — lime brand color */
+.hero-marquee .hero-marquee-accent {
+  color: var(--hero-marquee-accent);
+}
+
+/* Inline CTA — lime accent, underlined, spaced from the statement */
 .hero-marquee a.hero-marquee-cta:any-link {
   padding-left: 30px;
   color: var(--hero-marquee-accent);
   font-size: 16px;
   font-weight: 700;
-  text-decoration: none;
+  letter-spacing: 0.5px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
   white-space: nowrap;
 }
 
