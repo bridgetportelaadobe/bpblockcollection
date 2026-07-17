@@ -18,10 +18,12 @@
   text-align: center;
 }
 
-/* Content cell */
+/* Content cell — shrink to fit the statement so the left-aligned fine print
+ * lines up with the start of the centered statement ("SAME PRICE..."). */
 .hero-marquee .hero-marquee-content {
+  width: fit-content;
+  max-width: 90%;
   margin: 0 auto;
-  max-width: 75%;
 }
 
 /* Statement line (bold, near-white, centered) */
