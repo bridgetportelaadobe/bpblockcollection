@@ -29,6 +29,13 @@ export default function decorate(block) {
   }
 
   if (imageUrl) {
+    // Scene7 smart-crops each width differently: the small (wid=750) rendition
+    // frames a narrow slice that drops the subject, while the wide rendition
+    // keeps the full banner (photo card left, dark field right). Force the wide
+    // rendition so the intended artwork shows.
+    if (imageUrl.includes('scene7.com')) {
+      imageUrl = imageUrl.replace(/([?&]wid=)\d+/, '$12000');
+    }
     block.style.setProperty('--hero-promo-bg', `url("${imageUrl}")`);
     block.classList.add('hero-promo-has-bg');
     if (imageRow) imageRow.remove();

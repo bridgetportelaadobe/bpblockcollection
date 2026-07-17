@@ -19,7 +19,7 @@
   background-color: #000;
   background-image: var(--hero-promo-bg);
   background-size: cover;
-  background-position: 50% 50%;
+  background-position: left center;
   background-repeat: no-repeat;
   color: rgb(255 255 255);
   overflow: hidden;
@@ -94,6 +94,12 @@
 @media (width >= 900px) {
   .hero-promo {
     min-height: 240px;
+
+    /* The source art is a wide strip with the photo card on the left and a
+     * solid black field on the right (where the text sits). Contain it so the
+     * full photo card shows; the black remainder blends into the banner. */
+    background-size: auto 100%;
+    background-position: left center;
   }
 
   .hero-promo .hero-promo-content {
