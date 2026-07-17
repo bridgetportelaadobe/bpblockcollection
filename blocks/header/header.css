@@ -1,6 +1,7 @@
 /* header and nav layout */
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: #fff;
+  border-bottom: 1px solid #e6e6e6;
   width: 100%;
   z-index: 2;
   position: fixed;
@@ -15,7 +16,7 @@ header nav {
   align-items: center;
   gap: 0 24px;
   margin: auto;
-  max-width: 1248px;
+  max-width: 1240px;
   height: var(--nav-height);
   padding: 0 24px;
   font-family: var(--body-font-family);
@@ -146,7 +147,7 @@ header .nav-brand {
 }
 
 header nav .nav-brand img {
-  width: 128px;
+  width: 98px;
   height: auto;
 }
 
@@ -320,5 +321,61 @@ header .breadcrumbs ol li[aria-current] {
     display: block;
     max-width: 1264px;
     padding: 0 32px;
+  }
+}
+
+/* ===== Straight Talk header overrides ===== */
+
+/* main nav links: black, bold, no underline */
+header nav .nav-sections a:any-link {
+  color: #000;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+header nav .nav-sections a:hover {
+  color: var(--link-hover-color);
+}
+
+/* utility links (tools): small horizontal row, lighter weight */
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+header nav .nav-tools li {
+  font-size: 13px;
+}
+
+header nav .nav-tools a:any-link {
+  color: #000;
+  font-weight: 400;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+header nav .nav-tools a:hover {
+  color: var(--link-hover-color);
+  text-decoration: underline;
+}
+
+/* on mobile the tools list stacks inside the open menu */
+@media (width < 900px) {
+  header nav .nav-tools {
+    grid-area: tools;
+  }
+
+  header nav[aria-expanded='true'] .nav-tools ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 0;
   }
 }
