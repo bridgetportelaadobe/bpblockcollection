@@ -3,10 +3,14 @@
  * Values from source computed styles + reference screenshot. */
 
 /* ---- Row layout ---- */
+.columns-promo {
+  margin-top: 16px;
+}
+
 .columns-promo > div {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 }
 
 /* ---- Panel (card) ---- */

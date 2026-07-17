@@ -10,6 +10,7 @@
   --hero-marquee-accent: rgb(204 255 51);
 
   box-sizing: border-box;
+  margin-top: 16px;
   border-radius: 20px;
   padding: 20px 24px;
   background-color: var(--dark-color); /* #000 */
