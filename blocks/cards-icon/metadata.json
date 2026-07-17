@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-icon",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-16T15:32:43.554Z",
+  "sourceContext": {
+    "originUrl": "https://www.straighttalk.com/",
+    "originPage": "Straight Talk homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "feature",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "icon + link label, 3-up",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "icon action tile rows",
+      "get-started shortcut tiles"
+    ],
+    "notSuitableFor": [
+      "large product image cards",
+      "pricing cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-16T15:32:43.554Z"
+  }
+}

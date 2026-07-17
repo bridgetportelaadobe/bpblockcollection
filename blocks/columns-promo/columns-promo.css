@@ -1,0 +1,168 @@
+/* columns-promo — two side-by-side promo "bento" panels
+ * Source: straighttalk.com #main .cmp-experiencefragment--st-home-bento
+ * Values from source computed styles (migration-work/columns-promo-extracted.css). */
+
+/* ---- Row layout ---- */
+.columns-promo > div {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ---- Panel (card) ---- */
+.columns-promo .columns-promo-panel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  min-height: 320px;
+  display: flex;
+}
+
+/* ---- Background media ---- */
+.columns-promo .columns-promo-media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: 0;
+}
+
+.columns-promo .columns-promo-media img,
+.columns-promo .columns-promo-media video,
+.columns-promo .columns-promo-media picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Media rendered as a bare link (import could not embed the asset):
+ * give it a neutral dark fill so the white overlay text stays legible. */
+.columns-promo .columns-promo-media a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #1a1a1a;
+  color: transparent;
+  font-size: 0;
+}
+
+/* ---- Text overlay ---- */
+.columns-promo .columns-promo-content {
+  position: relative;
+  z-index: 1;
+  padding: 32px 24px;
+  color: #fff;
+  max-width: 420px;
+}
+
+.columns-promo .columns-promo-content > * {
+  margin: 0 0 10px;
+}
+
+.columns-promo .columns-promo-content > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Description (base paragraph) */
+.columns-promo .columns-promo-content p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
+}
+
+/* Eyebrow (first paragraph) */
+.columns-promo .columns-promo-content > p:first-child {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  color: #fff;
+}
+
+/* Heading */
+.columns-promo .columns-promo-content h2 {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.25px;
+  color: #fff;
+  margin: 0 0 10px;
+}
+
+/* ---- CTA buttons (override global .button reset) ---- */
+.columns-promo .columns-promo-content p:last-child {
+  margin-top: 4px;
+}
+
+main .columns-promo .columns-promo-content a,
+main .columns-promo .columns-promo-content a.button:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 13px 34px;
+  border-radius: 20px;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  text-transform: uppercase;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* Panel 1 CTA (GET DEAL) — lime green, black text */
+main .columns-promo .columns-promo-panel:first-child .columns-promo-content a,
+main .columns-promo .columns-promo-panel:first-child .columns-promo-content a.button:any-link {
+  background-color: rgb(190 232 30);
+  color: #000;
+}
+
+/* Panel 2 CTA (SHOP NOW) — white bg, grey border, black text */
+main .columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content a,
+main .columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content a.button:any-link {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid rgb(178 178 178);
+}
+
+main .columns-promo .columns-promo-panel:first-child .columns-promo-content a:hover,
+main .columns-promo .columns-promo-panel:first-child .columns-promo-content a:focus {
+  background-color: rgb(170 210 24);
+  color: #000;
+  text-decoration: none;
+}
+
+main .columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content a:hover,
+main .columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content a:focus {
+  background-color: #f2f2f2;
+  color: #000;
+  text-decoration: none;
+}
+
+/* ---- Desktop: side-by-side 58.33% / 41.67% ---- */
+@media (width >= 900px) {
+  .columns-promo > div {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 30px;
+  }
+
+  .columns-promo .columns-promo-panel {
+    min-height: 437px;
+  }
+
+  .columns-promo .columns-promo-panel:first-child {
+    flex: 0 0 calc(58.3333% - 15px);
+  }
+
+  .columns-promo .columns-promo-panel:nth-child(2) {
+    flex: 0 0 calc(41.6667% - 15px);
+  }
+
+  .columns-promo .columns-promo-content {
+    padding: 44px;
+    max-width: 400px;
+  }
+}

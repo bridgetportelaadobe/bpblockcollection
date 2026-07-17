@@ -1,0 +1,138 @@
+/* Block: cards-promo -- 3-up promo banner grid (bento cards)
+ * Values extracted from source computed styles at straighttalk.com.
+ * Source cards: black background, 20px radius, product image left, white text
+ * right, lime-green (#ccff33) accent + CTA caret link.
+ * NOTE: local preview served unrelated content, so this was styled from
+ * .plain.html structure + source computed styles (no live verification).
+ */
+
+/* Grid: 3 cards across on desktop, stacked on mobile */
+.cards-promo > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (width >= 900px) {
+  .cards-promo > ul {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+}
+
+/* Card container */
+.cards-promo > ul > li {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  min-height: 200px;
+  border-radius: 20px;
+  background-color: rgb(0 0 0);
+  color: rgb(255 255 255);
+  overflow: hidden;
+}
+
+/* First cell = product image column (authored as a link in this content). */
+.cards-promo > ul > li > div:first-child {
+  flex: 0 0 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards-promo > ul > li a img {
+  width: 13px;
+  height: 13px;
+  margin: 0;
+}
+
+.cards-promo > ul > li > div:first-child img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Text column */
+.cards-promo > ul > li > div:last-child {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 16px 20px 16px 0;
+}
+
+.cards-promo > ul > li > div:last-child > p {
+  margin: 0;
+  color: rgb(255 255 255);
+}
+
+/* Subtitle / heading line (first paragraph) — bold 18px white */
+.cards-promo > ul > li > div:last-child > p:first-child {
+  font-family: var(--body-font-family);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  padding-bottom: 2px;
+}
+
+/* Body copy — 14px regular white */
+.cards-promo > ul > li > div:last-child > p:nth-child(2) {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+/* CTA link ("Shop now" / "Start saving") — lime-green bold with caret */
+.cards-promo > ul > li a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: rgb(204 255 51);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cards-promo > ul > li a:hover,
+.cards-promo > ul > li a:focus {
+  color: rgb(204 255 51);
+  text-decoration: underline;
+}
+
+/* EDS decorates standalone <p><a> as a .button — neutralize pill styling so
+ * the image-cell link and CTA render as source (plain/lime text link). */
+.cards-promo .button-container {
+  display: inline;
+  margin: 0;
+}
+
+.cards-promo a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  color: rgb(204 255 51);
+  font-size: 16px;
+  font-weight: 700;
+  white-space: normal;
+  text-decoration: none;
+}
+
+.cards-promo a.button:hover,
+.cards-promo a.button:focus {
+  background: none;
+  color: rgb(204 255 51);
+  text-decoration: underline;
+}

@@ -1,0 +1,126 @@
+/* Block: cards-tile — "More ways to stay connected" device tiles.
+   Values extracted from source computed styles (straighttalk.com homepage).
+   Each tile: product image on the left, text (title / description / "Shop now") on the right,
+   on a white background. Source layout is a 2-up grid of wide horizontal tiles. */
+
+.cards-tile {
+  background-color: var(--background-color);
+  padding-top: 40px;
+}
+
+.cards-tile > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+.cards-tile > ul > li {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  min-height: 160px;
+  background-color: var(--background-color);
+}
+
+/* Image cell — product photo on the left */
+.cards-tile .cards-tile-card-image {
+  flex: 0 0 auto;
+  width: 155px;
+  line-height: 0;
+}
+
+.cards-tile .cards-tile-card-image picture,
+.cards-tile .cards-tile-card-image a {
+  display: block;
+}
+
+.cards-tile .cards-tile-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Text cell — title, description, CTA on the right */
+.cards-tile .cards-tile-card-body {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.cards-tile .cards-tile-card-body p {
+  margin: 0;
+  color: var(--text-color);
+  line-height: 24px;
+  text-align: left;
+}
+
+/* Title */
+.cards-tile .cards-tile-card-body p:first-child {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Short description */
+.cards-tile .cards-tile-card-body p:nth-child(2) {
+  font-size: 14px;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+/* "Shop now" link */
+.cards-tile .cards-tile-card-body .button-container {
+  display: block;
+  margin-top: 16px;
+}
+
+.cards-tile .cards-tile-card-body a,
+.cards-tile .cards-tile-card-body a.button:any-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--text-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cards-tile .cards-tile-card-body a:hover,
+.cards-tile .cards-tile-card-body a.button:hover,
+.cards-tile .cards-tile-card-body a.button:focus {
+  color: var(--link-hover-color);
+  background: none;
+  text-decoration: none;
+}
+
+/* Arrow chevron after the link label */
+.cards-tile .cards-tile-card-body a img {
+  width: 9px;
+  height: 16px;
+  object-fit: contain;
+}
+
+@media (width >= 900px) {
+  .cards-tile > ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 30px;
+  }
+
+  .cards-tile > ul > li {
+    gap: 55px;
+  }
+
+  .cards-tile .cards-tile-card-image {
+    width: 175px;
+  }
+}

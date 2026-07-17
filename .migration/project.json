@@ -1,0 +1,10 @@
+{
+  "type": "xwalk",
+  "sites": {
+    "bpblockcollection": {
+      "previewOrg": "bridgetportelaadobe",
+      "previewSite": "bpblockcollection",
+      "libraryUrl": "https://main--sta-xwalk-boilerplate--aemysites.aem.page/tools/sidekick/library.json"
+    }
+  }
+}

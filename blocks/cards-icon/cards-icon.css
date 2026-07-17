@@ -1,0 +1,74 @@
+/* Block: cards-icon -- "Let's get started" icon tiles */
+
+/* Values extracted from source computed styles (straighttalk.com). */
+
+.cards-icon {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  padding: 40px 0 0;
+}
+
+/* Row of tiles */
+.cards-icon > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Tile */
+.cards-icon > ul > li {
+  flex: 1;
+  text-align: center;
+  background: none;
+  border: none;
+}
+
+/* Icon cell */
+.cards-icon .cards-icon-card-image {
+  line-height: 0;
+}
+
+.cards-icon .cards-icon-card-image picture {
+  display: inline-block;
+}
+
+.cards-icon .cards-icon-card-image img {
+  width: 105px;
+  height: 105px;
+  object-fit: contain;
+}
+
+/* Label cell */
+.cards-icon .cards-icon-card-body {
+  margin: 0;
+  text-align: center;
+}
+
+.cards-icon .cards-icon-card-body p {
+  margin: 25px 0 0;
+}
+
+/* Label link */
+.cards-icon .cards-icon-card-body a:any-link {
+  color: var(--text-color);
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.cards-icon .cards-icon-card-body a:hover,
+.cards-icon .cards-icon-card-body a:focus {
+  color: var(--link-hover-color);
+}
+
+@media (width >= 900px) {
+  .cards-icon > ul {
+    flex-direction: row;
+  }
+}

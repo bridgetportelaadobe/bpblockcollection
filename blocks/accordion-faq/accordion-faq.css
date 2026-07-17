@@ -1,0 +1,116 @@
+/*
+ * Accordion FAQ block
+ * Design migrated from straighttalk.com (#main .accordion-new.cmp-accordion).
+ * Values extracted from source computed styles — see migration-work/accordion-faq-extracted.css
+ *
+ * EDS decorated DOM (see accordion-faq.js):
+ *   .accordion-faq
+ *     details.accordion-faq-item
+ *       summary.accordion-faq-item-label  (contains <p> question)
+ *       div.accordion-faq-item-body       (answer)
+ */
+
+.accordion-faq {
+  color: var(--text-color);
+}
+
+/* Each item: full-width 1px divider between rows (source: .border-bottom #b2b2b2) */
+.accordion-faq .accordion-faq-item {
+  border-top: 1px solid #b2b2b2;
+}
+
+.accordion-faq .accordion-faq-item:last-child {
+  border-bottom: 1px solid #b2b2b2;
+}
+
+/* Toggle header: flex row, question left + plus/minus icon right (source card-header padding 40px 0) */
+.accordion-faq .accordion-faq-item-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 40px 0;
+  color: var(--text-color);
+  cursor: pointer;
+  list-style: none;
+}
+
+.accordion-faq .accordion-faq-item-label::-webkit-details-marker {
+  display: none;
+}
+
+/* Question text (source p.mb-0: 14px / 600 / 20px line-height) */
+.accordion-faq .accordion-faq-item-label p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--text-color);
+  text-align: left;
+}
+
+/* Expand/collapse icon: plus (+) when closed, minus (-) when open.
+   Recreated with pseudo-elements (source used an icon font i.add-sm / i.remove-sm). */
+.accordion-faq .accordion-faq-item-label::after {
+  content: '';
+  position: relative;
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+  background:
+    /* horizontal bar */
+    linear-gradient(currentcolor, currentcolor) center / 16px 2px no-repeat,
+    /* vertical bar (hidden when open) */
+    linear-gradient(currentcolor, currentcolor) center / 2px 16px no-repeat;
+  color: var(--text-color);
+  transition: transform 0.2s ease;
+}
+
+/* Open state: hide the vertical bar so a minus (-) remains */
+.accordion-faq .accordion-faq-item[open] .accordion-faq-item-label::after {
+  background: linear-gradient(currentcolor, currentcolor) center / 16px 2px no-repeat;
+}
+
+/* Answer panel (source .card-body: 30px padding, #f9f9f9 bg) */
+.accordion-faq .accordion-faq-item-body {
+  padding: 30px;
+  background-color: #f9f9f9;
+}
+
+.accordion-faq .accordion-faq-item:not([open]) .accordion-faq-item-body {
+  display: none;
+}
+
+/* Answer text (source: 14px / 400 / 30px line-height / #231f20) */
+.accordion-faq .accordion-faq-item-body p {
+  margin: 0;
+  font-family: var(--body-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 30px;
+  color: #231f20;
+}
+
+.accordion-faq .accordion-faq-item-body p + p {
+  margin-top: 0.8em;
+}
+
+.accordion-faq .accordion-faq-item-body ul,
+.accordion-faq .accordion-faq-item-body ol {
+  margin: 0.8em 0;
+  padding-left: 24px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #231f20;
+}
+
+/* Links inside answers keep brand link styling */
+.accordion-faq .accordion-faq-item-body a:any-link {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.accordion-faq .accordion-faq-item-body a:hover {
+  color: var(--link-hover-color);
+}

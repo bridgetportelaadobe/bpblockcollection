@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-promo",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-07-16T15:32:43.554Z",
+  "sourceContext": {
+    "originUrl": "https://www.straighttalk.com/",
+    "originPage": "Straight Talk homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "colored",
+    "density": "compact",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "heading + copy + CTA over background banner",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "full-width promotional banners",
+      "skinny/bundle offer banners"
+    ],
+    "notSuitableFor": [
+      "top-of-page primary hero",
+      "repeating card grids"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-16T15:32:43.554Z"
+  }
+}

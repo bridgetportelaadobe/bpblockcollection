@@ -1,0 +1,163 @@
+/* Block: cards-product — "5G Phones at prices you'll love" featured product grid.
+   Values extracted from source computed styles (#main .phone-genie-content). */
+
+.cards-product {
+  --cards-product-accent: rgb(190 232 30); /* Straight Talk lime — no brand var match */
+}
+
+/* card track: 3 product cards centered, 32px gap */
+.cards-product > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+/* individual card */
+.cards-product > ul > li {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 350px;
+  background-color: var(--background-color);
+  border-radius: 20px;
+  overflow: hidden; /* clip full-width eyebrow band to rounded top corners */
+  text-align: center;
+}
+
+/* eyebrow / offer banner — full-width lime band flush at card top.
+   JS hoists this to be the first direct child of the li. */
+.cards-product .cards-product-eyebrow {
+  margin: 0;
+  padding: 2.5px 10px;
+  background-color: var(--cards-product-accent);
+  color: var(--text-color);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 23px;
+  letter-spacing: 0.25px;
+  text-align: center;
+}
+
+/* body wrapper (holds name/prices/financing/cta) */
+.cards-product .cards-product-card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px 16px;
+}
+
+/* image cell */
+.cards-product .cards-product-card-image {
+  line-height: 0;
+  padding: 10px 16px 0;
+}
+
+.cards-product .cards-product-card-image img {
+  width: auto;
+  max-width: 171px;
+  height: auto;
+}
+
+/* product name — hoisted to a direct li child, sits above the phone image */
+.cards-product .cards-product-name {
+  margin: 20px 16px 0;
+  color: var(--text-color);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  text-align: center;
+}
+
+/* was-price — strikethrough */
+.cards-product .cards-product-price-was {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  text-decoration: line-through;
+  text-align: center;
+}
+
+/* now-price / sole price — emphasized */
+.cards-product .cards-product-price-now {
+  margin: 0;
+  color: var(--text-color);
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28px;
+  text-align: center;
+}
+
+/* financing line + inline SmartPay logo */
+.cards-product .cards-product-financing {
+  margin: 4px 0 0;
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.25px;
+  text-align: center;
+}
+
+.cards-product .cards-product-financing img,
+.cards-product .cards-product-financing picture {
+  display: inline-block;
+  width: auto;
+  max-width: 94px;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* CTA — lime pill (overrides the global plain-link button reset) */
+.cards-product .cards-product-cta {
+  margin: 16px 0 0;
+}
+
+main .cards-product .cards-product-cta a.button:any-link,
+main .cards-product .cards-product-cta a:any-link {
+  display: inline-block;
+  min-width: 150px;
+  margin: 0;
+  padding: 13px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--cards-product-accent);
+  color: var(--text-color);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.75px;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: rgb(0 0 0 / 20%) 5px 5px 20px 0;
+}
+
+main .cards-product .cards-product-cta a.button:hover,
+main .cards-product .cards-product-cta a.button:focus,
+main .cards-product .cards-product-cta a:hover,
+main .cards-product .cards-product-cta a:focus {
+  background-color: var(--cards-product-accent);
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* desktop: 3 cards side by side */
+@media (width >= 900px) {
+  .cards-product > ul {
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  .cards-product > ul > li {
+    flex: 0 1 350px;
+  }
+}

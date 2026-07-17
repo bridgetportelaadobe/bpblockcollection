@@ -1,0 +1,92 @@
+/* Block: cards-feature
+ * Source: straighttalk.com "Why choose Straight Talk?" feature grid.
+ * 4 feature items (icon + title + description + arrow link) laid out as a 2-column grid.
+ * Values extracted from source computed styles. */
+
+.cards-feature > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+
+@media (width >= 900px) {
+  .cards-feature > ul {
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 31px;
+  }
+}
+
+/* Each feature item: icon stacked above text */
+.cards-feature > ul > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background: none;
+  border: none;
+  margin: 0;
+}
+
+@media (width >= 900px) {
+  .cards-feature > ul > li {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* Icon cell (card-image gets this class when authored as a picture; some items
+ * author the icon as a link cell — cover both by targeting the first cell). */
+.cards-feature > ul > li > div:first-child {
+  line-height: 0;
+  margin: 0 0 20px;
+}
+
+.cards-feature > ul > li img {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+}
+
+/* Text cell = the last cell in each item (positional so it works whether or not
+ * decorate() applied the card-body class to the image cell). */
+.cards-feature > ul > li > div:last-child {
+  margin: 0;
+}
+
+/* Title = first paragraph in the text cell */
+.cards-feature > ul > li > div:last-child > p:first-child {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+/* Description = second paragraph */
+.cards-feature > ul > li > div:last-child > p:nth-child(2) {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--text-color);
+  margin: 0 0 12px;
+}
+
+/* Arrow link ("Learn more >") = last paragraph */
+.cards-feature > ul > li > div:last-child > p:last-child {
+  margin: 0;
+}
+
+.cards-feature > ul > li > div:last-child a:any-link {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.cards-feature > ul > li > div:last-child a:hover {
+  color: var(--link-hover-color);
+  text-decoration: none;
+}

@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-tile",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-16T15:32:43.554Z",
+  "sourceContext": {
+    "originUrl": "https://www.straighttalk.com/",
+    "originPage": "Straight Talk homepage",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "feature",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "title + short description + CTA, 4-up",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "device/category navigation tiles",
+      "text-led shortcut grids"
+    ],
+    "notSuitableFor": [
+      "image-led product cards",
+      "pricing cards"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-16T15:32:43.554Z"
+  }
+}

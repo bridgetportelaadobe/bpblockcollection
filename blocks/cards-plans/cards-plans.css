@@ -1,0 +1,229 @@
+/* Block: cards-plans -- phone plan comparison cards.
+   Values extracted from source computed styles (straighttalk.com). */
+
+/* Plan accent colors (heading + header bottom accent line) */
+.cards-plans {
+  --plan-silver-color: rgb(231 220 204);
+  --plan-gold-color: rgb(255 217 88);
+  --plan-platinum-color: rgb(219 212 212);
+  --plan-bronze-color: rgb(230 189 164);
+  --plan-lime: rgb(190 232 30);
+  --plan-header-bg: #000;
+  --plan-feature-color: rgb(93 93 93);
+  --plan-border-color: rgb(218 218 218);
+
+  background-color: var(--background-color);
+  padding-top: 40px;
+}
+
+/* Card grid */
+.cards-plans > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (width >= 900px) {
+  .cards-plans > ul {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    align-items: stretch;
+  }
+}
+
+/* Card */
+.cards-plans > ul > li {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--plan-border-color);
+  border-radius: 20px;
+  background-color: var(--background-color);
+  overflow: hidden;
+  text-align: center;
+}
+
+.cards-plans .cards-plans-card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0;
+  padding-bottom: 16px;
+}
+
+/* --- Dark header (eyebrow, plan name, price, subprice) --- */
+.cards-plans .cards-plans-header {
+  position: relative;
+  background-color: var(--plan-header-bg);
+  color: #fff;
+  padding: 32px 16px 0;
+  border-bottom: 6px solid #fff;
+}
+
+/* per-plan accent line under the dark header */
+.cards-plans-silver .cards-plans-header { border-bottom-color: var(--plan-silver-color); }
+.cards-plans-gold .cards-plans-header { border-bottom-color: var(--plan-gold-color); }
+.cards-plans-platinum .cards-plans-header { border-bottom-color: var(--plan-platinum-color); }
+.cards-plans-bronze .cards-plans-header { border-bottom-color: var(--plan-bronze-color); }
+
+/* badge icon (16px) inline before plan name */
+.cards-plans .cards-plans-header .cards-plans-card-image {
+  display: inline-block;
+  line-height: 0;
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+/* eyebrow pill (lime green, absolute at top) */
+.cards-plans .cards-plans-eyebrow {
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 8px 20px;
+  border-radius: 20px;
+  background-color: var(--plan-lime);
+  white-space: nowrap;
+}
+
+.cards-plans .cards-plans-eyebrow strong {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 16px;
+}
+
+/* plan name */
+.cards-plans .cards-plans-header h2 {
+  display: inline-block;
+  margin: 0;
+  font-family: var(--heading-font-family);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.94px;
+  vertical-align: middle;
+}
+
+.cards-plans-silver .cards-plans-header h2 { color: var(--plan-silver-color); }
+.cards-plans-gold .cards-plans-header h2 { color: var(--plan-gold-color); }
+.cards-plans-platinum .cards-plans-header h2 { color: var(--plan-platinum-color); }
+.cards-plans-bronze .cards-plans-header h2 { color: var(--plan-bronze-color); }
+
+/* price */
+.cards-plans .cards-plans-price {
+  margin: 0;
+  color: #fff;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 46px;
+}
+
+.cards-plans .cards-plans-price sup {
+  color: var(--plan-lime);
+  font-size: 16px;
+  font-weight: 600;
+  vertical-align: super;
+  top: -10px;
+}
+
+/* subprice (auto pay line) */
+.cards-plans .cards-plans-subprice {
+  margin: 0;
+  padding-bottom: 24px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+/* --- Light features region --- */
+.cards-plans .cards-plans-features {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 32px 10px 16px;
+  text-align: left;
+}
+
+.cards-plans .cards-plans-features ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cards-plans .cards-plans-features li {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0 0 16px;
+  color: var(--plan-feature-color);
+}
+
+.cards-plans .cards-plans-features li p {
+  margin: 0 0 0 8px;
+  color: var(--plan-feature-color);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.cards-plans .cards-plans-features li p strong {
+  font-weight: 700;
+}
+
+.cards-plans .cards-plans-features li img,
+.cards-plans .cards-plans-features li picture {
+  flex: 0 0 auto;
+  width: 24px;
+  height: 24px;
+}
+
+/* citation superscript icon in plan-name heading */
+.cards-plans .cards-plans-header h2 sup img {
+  width: 12px;
+  height: 12px;
+}
+
+/* badge icon in the dark header (placed last to satisfy ascending specificity) */
+.cards-plans .cards-plans-header .cards-plans-card-image img,
+.cards-plans .cards-plans-header .cards-plans-card-image picture {
+  width: 16px;
+  height: 16px;
+}
+
+/* SEE DETAILS CTA -- black pill button */
+.cards-plans .cards-plans-features p:last-child {
+  margin: auto 0 0;
+  text-align: center;
+}
+
+main .cards-plans .cards-plans-features a:any-link,
+main .cards-plans .cards-plans-features a.button:any-link {
+  display: inline-block;
+  margin: 0;
+  padding: 13.44px 34.24px;
+  border: none;
+  border-radius: 20px;
+  background-color: #000;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.75px;
+  line-height: 1.25;
+  text-transform: uppercase;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+main .cards-plans .cards-plans-features a:hover,
+main .cards-plans .cards-plans-features a:focus,
+main .cards-plans .cards-plans-features a.button:hover,
+main .cards-plans .cards-plans-features a.button:focus {
+  background-color: var(--link-hover-color);
+  color: #fff;
+  text-decoration: none;
+}

@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-promo",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-16T15:32:43.554Z",
+  "sourceContext": {
+    "originUrl": "https://www.straighttalk.com/",
+    "originPage": "Straight Talk homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "wide",
+    "purpose": "product",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + copy + CTA, 3-up",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "3-up promotional banner grids",
+      "dark product promo tiles"
+    ],
+    "notSuitableFor": [
+      "text-only tiles",
+      "pricing comparison tables"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-16T15:32:43.554Z"
+  }
+}

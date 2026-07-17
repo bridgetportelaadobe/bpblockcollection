@@ -1,0 +1,39 @@
+{
+  "variantName": "columns-promo",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-07-16T15:32:43.554Z",
+  "sourceContext": {
+    "originUrl": "https://www.straighttalk.com/",
+    "originPage": "Straight Talk homepage",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "two side-by-side promo panels (video + image)",
+    "buttonCount": 2,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "two-up promo panels",
+      "mixed-media side-by-side layouts"
+    ],
+    "notSuitableFor": [
+      "uniform repeating item grids",
+      "single banners"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-16T15:32:43.554Z"
+  }
+}

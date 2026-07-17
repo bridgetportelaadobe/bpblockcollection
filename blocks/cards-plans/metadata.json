@@ -1,0 +1,39 @@
+{
+  "variantName": "cards-plans",
+  "baseBlock": "cards",
+  "version": "1.0.0",
+  "created": "2026-07-16T15:32:43.554Z",
+  "sourceContext": {
+    "originUrl": "https://www.straighttalk.com/",
+    "originPage": "Straight Talk homepage",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "wide",
+    "purpose": "product",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "badge + plan name + price + feature list + CTA, 4-up",
+    "buttonCount": 1,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "plan/pricing comparison cards",
+      "tiered subscription tiles"
+    ],
+    "notSuitableFor": [
+      "image-led product cards",
+      "simple text tiles"
+    ]
+  },
+  "usage": {
+    "pagesUsing": [
+      "/index"
+    ],
+    "reuseCount": 1,
+    "lastUsed": "2026-07-16T15:32:43.554Z"
+  }
+}

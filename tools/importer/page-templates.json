@@ -1,0 +1,194 @@
+{
+  "metadata": {
+    "projectType": "xwalk"
+  },
+  "templates": [
+    {
+      "name": "homepage",
+      "urls": [
+        "https://www.straighttalk.com/"
+      ],
+      "representativeUrl": "https://www.straighttalk.com/",
+      "coverageGaps": [],
+      "description": "Straight Talk homepage: hero/marquee promo, promotional banner grid, home internet skinny banner, get-started tiles, phone plans comparison cards, why-choose-us feature grid, bundle discount banner, featured 5G phones grid, more-ways-to-connect device tiles, and FAQ accordion.",
+      "blocks": [
+        {
+          "name": "hero-marquee",
+          "instances": [
+            "#main .dark-theme.primary-carousel.pr-0.pl-0.container-fluid"
+          ]
+        },
+        {
+          "name": "columns-promo",
+          "instances": [
+            "#main .cmp-experiencefragment--st-home-bento"
+          ]
+        },
+        {
+          "name": "cards-promo",
+          "instances": [
+            "#main .cmp-experiencefragment--st-hp-three-card-bento"
+          ]
+        },
+        {
+          "name": "hero-promo",
+          "instances": [
+            "#main .primary-carousel.bg-white:has(a[href*=\"5g-lte-home-internet\"])",
+            "#main .primary-carousel.bg-white:has(a[href*=\"fiber-home-internet\"])"
+          ]
+        },
+        {
+          "name": "cards-icon",
+          "instances": [
+            "#main .columncontrol.bg-white.pt-40:has(a[href*=\"bring-your-own-phone.html\"])"
+          ]
+        },
+        {
+          "name": "cards-plans",
+          "instances": [
+            "#main .columncontrol.bg-white.pt-40:has(.plan-card.small-plan-card)"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            "#main .columncontrol.bg-white.pt-40:has(a[href*=\"plans/walmart-plus\"])"
+          ]
+        },
+        {
+          "name": "cards-product",
+          "instances": [
+            "#main .phone-genie-content"
+          ]
+        },
+        {
+          "name": "cards-tile",
+          "instances": [
+            "#main .columncontrol.bg-white.pt-40:has(a[href*=\"devices/wifi-hotspots\"])"
+          ]
+        },
+        {
+          "name": "accordion-faq",
+          "instances": [
+            "#main .accordion-new.cmp-accordion"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1",
+          "name": "Hero / Marquee Promo",
+          "selector": "#main .dark-theme.primary-carousel.pr-0.pl-0.container-fluid",
+          "style": "dark",
+          "blocks": [
+            "hero-marquee",
+            "columns-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2",
+          "name": "Promotional Banner Grid (3-up)",
+          "selector": "#main .cmp-experiencefragment--st-hp-three-card-bento",
+          "style": "dark",
+          "blocks": [
+            "cards-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-3",
+          "name": "Home Internet Skinny Banner",
+          "selector": "#main .primary-carousel.bg-white:has(a[href*=\"5g-lte-home-internet\"])",
+          "style": null,
+          "blocks": [
+            "hero-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4",
+          "name": "Let's Get Started Tiles + Award Badges",
+          "selector": "#main .columncontrol.bg-white.pt-40:has(a[href*=\"bring-your-own-phone.html\"])",
+          "style": "light",
+          "blocks": [
+            "cards-icon"
+          ],
+          "defaultContent": [
+            "#main .cmp-experiencefragment--st-hp-rewards-section"
+          ]
+        },
+        {
+          "id": "section-5",
+          "name": "Phone Plans Comparison Cards",
+          "selector": "#main .columncontrol.bg-white.pt-40:has(.plan-card.small-plan-card)",
+          "style": "light",
+          "blocks": [
+            "cards-plans"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6",
+          "name": "Wi-Fi Calling Note",
+          "selector": "#main > div.root.responsivegrid",
+          "style": null,
+          "blocks": [],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7",
+          "name": "Why Choose Straight Talk? Feature Grid",
+          "selector": "#main .columncontrol.bg-white.pt-40:has(a[href*=\"plans/walmart-plus\"])",
+          "style": "light",
+          "blocks": [
+            "cards-feature"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8",
+          "name": "Fios Bundle Discount Banner",
+          "selector": "#main .primary-carousel.bg-white:has(a[href*=\"fiber-home-internet\"])",
+          "style": null,
+          "blocks": [
+            "hero-promo"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9",
+          "name": "5G Phones Featured Grid",
+          "selector": "#main .phone-genie-content",
+          "style": "light",
+          "blocks": [
+            "cards-product"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-10",
+          "name": "More Ways To Stay Connected Device Tiles",
+          "selector": "#main .columncontrol.bg-white.pt-40:has(a[href*=\"devices/wifi-hotspots\"])",
+          "style": "light",
+          "blocks": [
+            "cards-tile"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "section-11",
+          "name": "FAQ Accordion + Store Locator",
+          "selector": "#main .accordion-new.cmp-accordion",
+          "style": "light",
+          "blocks": [
+            "accordion-faq"
+          ],
+          "defaultContent": [
+            "#main .columncontrol.store-locator.text-center"
+          ]
+        }
+      ]
+    }
+  ]
+}

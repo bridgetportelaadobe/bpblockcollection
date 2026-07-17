@@ -1,0 +1,21 @@
+{
+  "status": "success",
+  "url": "https://www.straighttalk.com/",
+  "path": "index",
+  "timestamp": "2026-07-16T18:12:38.160Z",
+  "title": "Unlimited Prepaid Plans, Phones & 5G Home Internet- Straight Talk",
+  "template": "homepage",
+  "blocks": [
+    "hero-marquee",
+    "columns-promo",
+    "cards-promo",
+    "hero-promo",
+    "hero-promo",
+    "cards-icon",
+    "cards-plans",
+    "cards-feature",
+    "cards-product",
+    "cards-tile",
+    "accordion-faq"
+  ]
+}
