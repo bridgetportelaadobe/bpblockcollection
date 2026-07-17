@@ -1,117 +1,60 @@
 /*
- * Hero Marquee — dark full-bleed promo marquee.
- * Values extracted from straighttalk.com computed styles.
- * See migration-work/hero-marquee-extracted.css for source references.
+ * Hero Marquee — full-width black rounded promo bar.
+ * A centered statement with an inline lime accent CTA and a small
+ * fine-print line beneath. Values extracted from straighttalk.com
+ * computed styles.
  */
 
-/* Full-bleed: neutralize the section wrapper max-width/padding */
-.hero-marquee-container .hero-marquee-wrapper {
-  max-width: unset;
-  padding: 0;
-}
-
-/* Block card: dark background, rounded corners, white text.
- * The promo image (--hero-marquee-bg, set by hero-marquee.js) is applied as a
- * cover background; the black background-color is the fallback/base. */
 .hero-marquee {
-  /* accent used for CTA + highlighted headline (source lime green) */
-  --hero-marquee-accent: rgb(190 232 30);
+  /* lime accent used for the CTA (source computed rgb(204 255 51)) */
+  --hero-marquee-accent: rgb(204 255 51);
 
-  position: relative;
-  overflow: hidden;
   box-sizing: border-box;
-  border-radius: 5px;
-  padding: 44px 24px;
-  color: var(--background-color); /* #fff on dark */
-  background-color: var(--dark-color); /* #000 base/fallback */
-}
-
-.hero-marquee.hero-marquee-has-bg {
-  background-image: var(--hero-marquee-bg);
-  background-repeat: no-repeat;
-  background-position: center right;
-  background-size: cover;
-}
-
-/* Text overlay sits above the background */
-.hero-marquee > div {
-  position: relative;
-  z-index: 1;
-}
-
-/* Text cell */
-.hero-marquee h2 {
-  margin: 0 0 0.4em;
-  color: var(--background-color);
-  font-size: 28px;
-  font-weight: 600;
-  line-height: 1.15;
-  letter-spacing: -0.25px;
-}
-
-.hero-marquee p {
-  margin: 0 0 0.75em;
-  color: var(--background-color);
-  font-size: 16px;
-  line-height: 24px;
-}
-
-/* Inline "Details" style links inside body text stay white/underlined */
-.hero-marquee p a:not(.button):any-link {
-  color: var(--background-color);
-  text-decoration: underline;
-}
-
-.hero-marquee p a:not(.button):hover {
-  color: var(--background-color);
-  opacity: 0.85;
-}
-
-/* CTA button — lime pill with black label (overrides global button reset) */
-.hero-marquee .button-container {
-  margin: 0;
-}
-
-.hero-marquee a.button:any-link {
-  display: inline-block;
-  margin: 0.5em 0 0;
-  padding: 13px 34px;
-  border: 0;
   border-radius: 20px;
-  background-color: var(--hero-marquee-accent);
-  color: var(--dark-color);
-  font-size: 12px;
+  padding: 20px 24px;
+  background-color: var(--dark-color); /* #000 */
+  color: rgb(247 243 243);
+  text-align: center;
+}
+
+/* Content cell */
+.hero-marquee .hero-marquee-content {
+  margin: 0 auto;
+  max-width: 75%;
+}
+
+/* Statement line (bold, near-white, centered) */
+.hero-marquee .hero-marquee-statement {
+  margin: 0;
+  color: rgb(247 243 243);
+  font-size: 20px;
   font-weight: 700;
-  line-height: 1.25;
-  text-transform: uppercase;
+  line-height: 24px;
+  text-align: center;
+}
+
+/* Inline CTA — lime accent, no underline, spaced from the statement */
+.hero-marquee a.hero-marquee-cta:any-link {
+  padding-left: 30px;
+  color: var(--hero-marquee-accent);
+  font-size: 16px;
+  font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
 }
 
-.hero-marquee a.button:hover,
-.hero-marquee a.button:focus {
-  background-color: var(--hero-marquee-accent);
-  color: var(--dark-color);
-  text-decoration: none;
-  filter: brightness(0.92);
+.hero-marquee a.hero-marquee-cta:hover,
+.hero-marquee a.hero-marquee-cta:focus {
+  color: var(--hero-marquee-accent);
+  text-decoration: underline;
 }
 
-/* Desktop: taller banner, text constrained to the left half over the image
- * (image content sits on the right in the source marquee art) */
-@media (width >= 900px) {
-  .hero-marquee {
-    display: flex;
-    align-items: center;
-    min-height: 320px;
-    padding: 44px;
-  }
-
-  .hero-marquee .hero-marquee-content {
-    max-width: 50%;
-  }
-
-  .hero-marquee h2 {
-    font-size: 32px;
-    line-height: 36px;
-  }
+/* Fine print — small, plain white */
+.hero-marquee .hero-marquee-fineprint {
+  margin: -4px 0 0;
+  color: var(--background-color); /* #fff */
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
 }

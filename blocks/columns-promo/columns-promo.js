@@ -19,50 +19,98 @@ function buildVideo(url) {
   return video;
 }
 
+// Pull the real media node (picture/video) out of whatever paragraph the
+// import/EDS decoration nested it in, and mark accent words in a heading.
+function markAccents(heading) {
+  if (!heading) return;
+  // Accent phrases the source renders in the lime brand color.
+  const accents = ['JUST $250', 'FREE'];
+  let html = heading.innerHTML;
+  accents.forEach((phrase) => {
+    if (html.includes(phrase) && !html.includes('columns-promo-accent')) {
+      html = html.replace(phrase, `<span class="columns-promo-accent">${phrase}</span>`);
+    }
+  });
+  heading.innerHTML = html;
+}
+
 export default function decorate(block) {
   const cols = [...block.firstElementChild.children];
   block.classList.add(`columns-promo-${cols.length}-cols`);
 
   // Each column is a promo panel: a background media (image/video/link) with
-  // an absolutely-positioned text overlay (eyebrow, heading, description, CTA).
+  // a text overlay (eyebrow, heading, description, CTA) on top.
   [...block.children].forEach((row) => {
     [...row.children].forEach((col) => {
       col.classList.add('columns-promo-panel');
 
-      // Identify the media element: a <picture>, or the media link/paragraph
-      // (import may render the video/image source as a plain link).
-      const pic = col.querySelector('picture');
-      let mediaWrapper = null;
+      // The overlay holds all text/CTA content on top of the media.
+      const overlay = document.createElement('div');
+      overlay.className = 'columns-promo-content';
 
-      if (pic) {
-        mediaWrapper = pic.closest('p') || pic.parentElement;
-      } else {
-        // First paragraph whose link points at an image/video/scene7 asset.
-        const firstP = col.querySelector('p');
-        const firstLink = firstP && firstP.querySelector('a');
-        if (firstLink && firstP && firstP.previousElementSibling === null) {
-          mediaWrapper = firstP;
-          // A video carrier link becomes a real <video> background; image
-          // carriers stay as links (styled as a cover background via CSS).
-          const href = firstLink.getAttribute('href');
+      // Locate the media node. It is a <picture>, or a plain carrier <a>
+      // (import may render the video/image source as a bare link). Because
+      // <picture>/<img> cannot legally sit inside a <p>, EDS decoration can
+      // nest sibling paragraphs inside the media paragraph — so we extract
+      // only the media node itself, not its wrapping <p>.
+      let mediaNode = col.querySelector('picture');
+      if (!mediaNode) {
+        // First link that points at an image/video/scene7 asset.
+        const links = [...col.querySelectorAll('a')];
+        const carrier = links.find((a) => {
+          const href = a.getAttribute('href') || '';
+          return isVideoUrl(href) || /\/is\/(image|content)\//.test(href);
+        });
+        if (carrier) {
+          const href = carrier.getAttribute('href');
           if (isVideoUrl(href)) {
-            firstLink.replaceWith(buildVideo(href));
+            const video = buildVideo(href);
+            carrier.replaceWith(video);
+            mediaNode = video;
+          } else {
+            mediaNode = carrier;
           }
         }
       }
 
-      if (mediaWrapper) {
-        mediaWrapper.classList.add('columns-promo-media');
+      let mediaWrapper = null;
+      if (mediaNode) {
+        // <picture>/<img> cannot live inside a <p>, so EDS may have nested the
+        // following text paragraphs inside the media's <p>. Unwrap that <p>
+        // (hoisting its remaining children up to the column) before removing
+        // the media node, so the text is not lost with the media wrapper.
+        const mediaP = mediaNode.closest('p');
+        if (mediaP && mediaP.parentElement) {
+          while (mediaP.firstChild) {
+            mediaP.parentElement.insertBefore(mediaP.firstChild, mediaP);
+          }
+          mediaP.remove();
+        }
+        mediaWrapper = document.createElement('div');
+        mediaWrapper.className = 'columns-promo-media';
+        mediaWrapper.append(mediaNode);
       }
 
-      // Everything else forms the text overlay.
-      const overlay = document.createElement('div');
-      overlay.className = 'columns-promo-content';
-      [...col.children].forEach((child) => {
-        if (child === mediaWrapper) return;
-        overlay.append(child);
+      // Everything remaining (text + CTA) moves into the overlay, in order.
+      [...col.childNodes].forEach((node) => {
+        // Drop empty wrappers left behind after pulling out the media.
+        if (node.nodeType === Node.ELEMENT_NODE
+          && node.children.length === 0
+          && !node.textContent.trim()) {
+          node.remove();
+          return;
+        }
+        if (node.nodeType === Node.TEXT_NODE && !node.textContent.trim()) {
+          return;
+        }
+        overlay.append(node);
       });
+
+      col.textContent = '';
+      if (mediaWrapper) col.append(mediaWrapper);
       col.append(overlay);
+
+      markAccents(overlay.querySelector('h2'));
     });
   });
 }

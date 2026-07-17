@@ -1,6 +1,6 @@
 /* columns-promo — two side-by-side promo "bento" panels
  * Source: straighttalk.com #main .cmp-experiencefragment--st-home-bento
- * Values from source computed styles (migration-work/columns-promo-extracted.css). */
+ * Values from source computed styles + reference screenshot. */
 
 /* ---- Row layout ---- */
 .columns-promo > div {
@@ -16,9 +16,10 @@
   border-radius: 20px;
   min-height: 320px;
   display: flex;
+  background-color: #000;
 }
 
-/* ---- Background media ---- */
+/* ---- Background media (image / video / carrier link) ---- */
 .columns-promo .columns-promo-media {
   position: absolute;
   inset: 0;
@@ -35,13 +36,12 @@
   object-fit: cover;
 }
 
-/* Media rendered as a bare link (import could not embed the asset):
- * give it a neutral dark fill so the white overlay text stays legible. */
+/* Media rendered as a bare carrier link (asset could not be embedded):
+ * keep the dark panel visible instead of the raw link text. */
 .columns-promo .columns-promo-media a {
   display: block;
   width: 100%;
   height: 100%;
-  background-color: #1a1a1a;
   color: transparent;
   font-size: 0;
 }
@@ -63,7 +63,7 @@
   margin-bottom: 0;
 }
 
-/* Description (base paragraph) */
+/* Description (body paragraph) */
 .columns-promo .columns-promo-content p {
   font-size: 16px;
   font-weight: 400;
@@ -71,12 +71,21 @@
   color: #fff;
 }
 
-/* Eyebrow (first paragraph) */
+/* Eyebrow (first paragraph) — lime on the left panel, white on the right */
 .columns-promo .columns-promo-content > p:first-child {
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
+  margin-bottom: 12px;
+}
+
+.columns-promo .columns-promo-panel:first-child .columns-promo-content > p:first-child {
+  color: rgb(204 255 51);
+}
+
+.columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content > p:first-child {
   color: #fff;
+  font-size: 18px;
 }
 
 /* Heading */
@@ -89,15 +98,17 @@
   margin: 0 0 10px;
 }
 
-/* ---- CTA buttons (override global .button reset) ---- */
-.columns-promo .columns-promo-content p:last-child {
-  margin-top: 4px;
+/* Accent words inside the heading (JUST $250, FREE) — lime brand color */
+.columns-promo .columns-promo-content h2 .columns-promo-accent {
+  color: rgb(204 255 51);
+  font-weight: 700;
 }
 
+/* ---- CTA buttons (override global .button reset) ---- */
 main .columns-promo .columns-promo-content a,
 main .columns-promo .columns-promo-content a.button:any-link {
   display: inline-block;
-  margin: 0;
+  margin: 4px 0 0;
   padding: 13px 34px;
   border-radius: 20px;
   border: none;
@@ -112,14 +123,14 @@ main .columns-promo .columns-promo-content a.button:any-link {
   cursor: pointer;
 }
 
-/* Panel 1 CTA (GET DEAL) — lime green, black text */
+/* Panel 1 CTA (GET DEAL) — lime green pill, black text */
 main .columns-promo .columns-promo-panel:first-child .columns-promo-content a,
 main .columns-promo .columns-promo-panel:first-child .columns-promo-content a.button:any-link {
-  background-color: rgb(190 232 30);
+  background-color: rgb(204 255 51);
   color: #000;
 }
 
-/* Panel 2 CTA (SHOP NOW) — white bg, grey border, black text */
+/* Panel 2 CTA (SHOP NOW) — white pill, grey border, black text */
 main .columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content a,
 main .columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content a.button:any-link {
   background-color: #fff;
@@ -129,7 +140,7 @@ main .columns-promo .columns-promo-panel:nth-child(2) .columns-promo-content a.b
 
 main .columns-promo .columns-promo-panel:first-child .columns-promo-content a:hover,
 main .columns-promo .columns-promo-panel:first-child .columns-promo-content a:focus {
-  background-color: rgb(170 210 24);
+  background-color: rgb(184 235 31);
   color: #000;
   text-decoration: none;
 }

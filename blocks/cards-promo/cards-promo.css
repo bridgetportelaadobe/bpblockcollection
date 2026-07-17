@@ -1,9 +1,12 @@
 /* Block: cards-promo -- 3-up promo banner grid (bento cards)
- * Values extracted from source computed styles at straighttalk.com.
- * Source cards: black background, 20px radius, product image left, white text
- * right, lime-green (#ccff33) accent + CTA caret link.
- * NOTE: local preview served unrelated content, so this was styled from
- * .plain.html structure + source computed styles (no live verification).
+ * Source: straighttalk.com #main .cmp-experiencefragment--st-hp-three-card-bento
+ * Values from source computed styles:
+ *   card box: rgb(0 0 0), border-radius 20px, padding 0 0 0 4px, min-height 200px,
+ *             overflow hidden, product image left (~44%), text right.
+ *   heading P: 18px/700, line-height 24px, white, letter-spacing 0.5px.
+ *   accent span (ON US / SAVE $150): rgb(204 255 51) weight 700.
+ *   body P: 14px/400, line-height 20px, white.
+ *   CTA link: 16px/700, line-height 24px, rgb(204 255 51), 13px caret.
  */
 
 /* Grid: 3 cards across on desktop, stacked on mobile */
@@ -23,42 +26,53 @@
   }
 }
 
-/* Card container */
+/* Card container -- black rounded box, image left / text right */
 .cards-promo > ul > li {
   position: relative;
   display: flex;
   align-items: stretch;
   min-height: 200px;
   border-radius: 20px;
+  padding-left: 4px;
   background-color: rgb(0 0 0);
   color: rgb(255 255 255);
   overflow: hidden;
 }
 
-/* First cell = product image column (authored as a link in this content). */
-.cards-promo > ul > li > div:first-child {
-  flex: 0 0 40%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  line-height: 0;
-}
-
+/* Caret arrow icon inside the CTA link -- 13px square (declared before the
+ * larger product-image img rule to satisfy no-descending-specificity). */
 .cards-promo > ul > li a img {
   width: 13px;
   height: 13px;
   margin: 0;
 }
 
-.cards-promo > ul > li > div:first-child img {
+/* Product image column (~44% of the card, full height). */
+.cards-promo > ul > li > .cards-promo-card-image {
+  flex: 0 0 44%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+  line-height: 0;
+}
+
+.cards-promo > ul > li > .cards-promo-card-image p {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cards-promo > ul > li > .cards-promo-card-image picture,
+.cards-promo > ul > li > .cards-promo-card-image img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
 }
 
 /* Text column */
-.cards-promo > ul > li > div:last-child {
+.cards-promo > ul > li > .cards-promo-card-body {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
@@ -67,13 +81,13 @@
   padding: 16px 20px 16px 0;
 }
 
-.cards-promo > ul > li > div:last-child > p {
+.cards-promo > ul > li > .cards-promo-card-body > p {
   margin: 0;
   color: rgb(255 255 255);
 }
 
-/* Subtitle / heading line (first paragraph) — bold 18px white */
-.cards-promo > ul > li > div:last-child > p:first-child {
+/* Heading line (first paragraph) -- bold 18px white, lime accent word. */
+.cards-promo > ul > li > .cards-promo-card-body > p:first-child {
   font-family: var(--body-font-family);
   font-size: 18px;
   font-weight: 700;
@@ -82,14 +96,20 @@
   padding-bottom: 2px;
 }
 
-/* Body copy — 14px regular white */
-.cards-promo > ul > li > div:last-child > p:nth-child(2) {
+/* Accent words (ON US, SAVE $150) -- lime brand color, bold. */
+.cards-promo .cards-promo-accent {
+  color: rgb(204 255 51);
+  font-weight: 700;
+}
+
+/* Body copy -- 14px regular white */
+.cards-promo > ul > li > .cards-promo-card-body > p:nth-child(2) {
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
 }
 
-/* CTA link ("Shop now" / "Start saving") — lime-green bold with caret */
+/* CTA link ("Shop now" / "Start saving") -- lime-green bold with caret */
 .cards-promo > ul > li a {
   display: inline-flex;
   align-items: center;
@@ -98,6 +118,7 @@
   font-family: var(--body-font-family);
   font-size: 16px;
   font-weight: 700;
+  line-height: 24px;
   text-decoration: none;
 }
 
@@ -107,8 +128,8 @@
   text-decoration: underline;
 }
 
-/* EDS decorates standalone <p><a> as a .button — neutralize pill styling so
- * the image-cell link and CTA render as source (plain/lime text link). */
+/* EDS decorates standalone <p><a> as a .button -- neutralize pill styling so
+ * the CTA renders as source (lime text link with caret). */
 .cards-promo .button-container {
   display: inline;
   margin: 0;
@@ -126,6 +147,7 @@
   color: rgb(204 255 51);
   font-size: 16px;
   font-weight: 700;
+  line-height: 24px;
   white-space: normal;
   text-decoration: none;
 }
